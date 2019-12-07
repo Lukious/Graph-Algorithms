@@ -37,17 +37,17 @@ Graph::~Graph()
 
 void Graph::AddVertex(int vertexKey)
 {
-	// 정점 갯수를 늘리고
+	// Increase the number of vertices.
 	m_vSize++;
 
-	// 만약 헤드가 없다면 헤드를 만들어주고
+	// If you don't have a head, you make a head.
 	if (m_pVHead == NULL)
 	{
 		m_pVHead = new Vertex(vertexKey);
 		return;
 	}
 
-	// 마지막 정점을 찾아 뒤에 붙인다.
+	// Find the last vertex and attach it to the back..
 	Vertex* current = m_pVHead;
 	while (current->GetNext() != NULL)
 	{
@@ -58,10 +58,10 @@ void Graph::AddVertex(int vertexKey)
 
 void Graph::AddEdge(int startVertexKey, int endVertexKey, int weight)
 {
-	// 만약 weight가 음수이면 음수가 있다는 것을 알리기 위해 플래그를 true로 변경
+	// Change the flag to true to indicate that there is a negative number if wait is negative.
 	if (weight < 0) m_isNegative = true;
 
-	// 시작점을 찾고 그 뒤에 간선을 입력
+	// Locate the starting point and enter the main line after that.
 	FindVertex(startVertexKey)->AddEdge(endVertexKey, weight);
 }
 
@@ -83,7 +83,7 @@ int Graph::Size() const
 
 void Graph::Clear()
 {
-	// 무슨 함수지???
+	// TODO
 }
 
 void Graph::Print(std::ofstream& fout)
